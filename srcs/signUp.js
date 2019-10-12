@@ -32,7 +32,7 @@ export default class SignUp extends Component {
 
 
 
-fetch('http://192.168.1.155/test_json/insertUser.php', {
+fetch('http://192.168.1.12/test_json/insertUser.php', {
   method: 'POST',
   headers: {
     'Accept': 'application/json',

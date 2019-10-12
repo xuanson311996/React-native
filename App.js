@@ -14,7 +14,7 @@ export default class App extends Component {
           <Scene key="Login" component={Login} title="Đăng nhập" initial={true}/>
           <Scene key="MainScreen" component={MainScreen}   title="Trang chủ" hideNavBar={1}/>
           <Scene key="pageTwo" component={PageTwo} title="Bài viết" />
-          <Scene key="SignUp" component={SignUp} title="Đăng Ký" />
+          <Scene key="SignUp" component={SignUp} title="Sign Up" />
           <Scene key="infoUser" component={InfoUser} title="Thông tin tài khoản" />
 
         </Scene>

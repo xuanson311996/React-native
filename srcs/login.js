@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import {TouchableHighlight } from 'react-native';
+import {TouchableHighlight,Image,ImageBackground } from 'react-native';
 import { Container,Footer, Header, Content, Form, Item, Input, Label, Button,Text,Toast } from 'native-base';
 import { Actions } from 'react-native-router-flux';
 export default class Login extends Component {
@@ -13,7 +13,7 @@ export default class Login extends Component {
   }
 
   componentDidMount(){
-    return fetch('http://192.168.1.155/test_json/userlist.php')
+    return fetch('http://192.168.1.12/test_json/userlist.php')
       .then((response) => response.json())
       .then((responseJson) => {
 
@@ -33,31 +33,33 @@ export default class Login extends Component {
 
   render() {
     return (
-      <Container>
+      <Container style={{marginTop:20}}>
+        <ImageBackground style={{marginTop:30,width:'100%',height:'100%'}}  source={require('../img/moutain.jpg')}>
         <Content>
           <Form>
           <Item></Item>
             <Item floatingLabel>
-              <Label>Username</Label>
-              <Input autoCapitalize = "none" value={this.state.user} onChangeText={(text) => this.setState({user:text})} />
+              <Label style={{fontWeight:"bold",marginLeft:5}}>User Name</Label>
+              <Input style={{width:350, height:60, borderWidth:1, margin:5, borderRadius:5,backgroundColor:'white',marginTop:50}} autoCapitalize = "none" value={this.state.user} onChangeText={(text) => this.setState({user:text})} />
             </Item>
             <Item floatingLabel last>
-              <Label>Password</Label>
-              <Input autoCapitalize = "none" secureTextEntry = {true} value={this.state.pass} onChangeText={(text) => this.setState({pass:text})} />
+              <Label style={{fontWeight:"bold",marginLeft:5,marginTop:-15}}>Password</Label>
+              <Input style={{marginTop:40,width:350, height:60, borderWidth:1, margin:5, borderRadius:5,backgroundColor:'white'}} autoCapitalize = "none" secureTextEntry = {true} value={this.state.pass} onChangeText={(text) => this.setState({pass:text})} />
             </Item>
           </Form>
           <Button full info style = {{alignSelf: 'center', margin: 30,  }}
             onPress={()=>{this.onPressNext()}}
             >
-            <Text>Log in</Text>
+            <Text>Sign In</Text>
           </Button>
-          
+
         </Content>
         <Footer style={{backgroundColor:'white'}}>
         <TouchableHighlight onPress={()=>{Actions.SignUp()}}>
-          <Text>Ấn vào đây để đăng ký tài khoản?</Text>
+          <Text style={{fontWeight:"bold"}}>Create New Account !</Text>
         </TouchableHighlight>
         </Footer>
+        </ImageBackground>
       </Container>
     );
   }
@@ -65,7 +67,7 @@ export default class Login extends Component {
   onPressNext(){
     var arr = this.state.dataUser;
     if(this.state.user.trim(" ") == '' ||this.state.pass.trim(" ")== ''){
-      return alert ('Bạn phải nhập đủ thông tin')
+      return alert ('You must fill out the form!')
     }
     else{
     for(var item = 0; item< arr.length; item++){
@@ -74,7 +76,7 @@ export default class Login extends Component {
         }
 
       }
-          return alert("Sai tài khoản mật khẩu")
+          return alert("Wrong Passord ! Please try again!")
     }
 
    }

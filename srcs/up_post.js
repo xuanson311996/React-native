@@ -23,7 +23,7 @@ export default class UpPost extends Component {
 
 
 
-fetch('http://192.168.1.155/test_json/insert_post.php', {
+fetch('http://192.168.1.12/test_json/insert_post.php', {
   method: 'POST',
   headers: {
     'Accept': 'application/json',
@@ -53,7 +53,7 @@ fetch('http://192.168.1.155/test_json/insert_post.php', {
         <Content padder>
         <Form>
           <Item floatingLabel>
-            <Label>Nội dung: </Label>
+            <Label>Content : </Label>
             <Input autoCapitalize = "words"  onChangeText={InputCont => this.setState({InputCont})} />
           </Item>
         </Form>

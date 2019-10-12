@@ -13,7 +13,7 @@ export default class MainScreen extends React.Component {
   }
 
   componentDidMount(){
-    return fetch('http://192.168.1.155/test_json/list_post.php')
+    return fetch('http://192.168.1.12/test_json/list_post.php')
       .then((response) => response.json())
       .then((responseJson) => {
 
@@ -43,10 +43,12 @@ export default class MainScreen extends React.Component {
       )
     }
     return(
-      <Container style={{backgroundColor: "#a0efd6"}}>
-      <Header noLeft style={{backgroundColor: '#55E6C1'}} >
+      <Container style={{backgroundColor: "#54B042"}}>
+      <Header noLeft style={{backgroundColor: '#54B042'}} >
+      <Title style={{fontWeight: 'bold',fontFamily:"sans-serif-medium",marginLeft:100,marginTop:20}}>KÊNH TIN TỨC +</Title>
          <Body>
-           <Title style={{fontWeight: 'bold',fontFamily:"sans-serif-medium"}}>My Blogger </Title>
+         
+         <Thumbnail style={{borderRadius:50,marginLeft:-230,marginTop:20}} source={require('../img/post3.png')} />
          </Body>
          <Right>
              <Text style={{color: 'white', fontSize:18, fontWeight: 'bold'}}
@@ -63,7 +65,7 @@ export default class MainScreen extends React.Component {
           <Card>
               <CardItem style={{padding: 10}}>
                 <Left>
-                  <Thumbnail source={require('../img/avt2.jpg')} />
+                <Thumbnail source={require('../img/avt3.jpg')} />
                   <Body>
                     <Text style={{fontWeight: 'bold',fontSize: 20}}>{item.user_post}</Text>
                   </Body>
@@ -75,16 +77,16 @@ export default class MainScreen extends React.Component {
               </CardItem>
               <CardItem>
                 <Left>
-                    <Text>Like</Text>
+                    <Text style={{fontWeight:"bold"}}>Details</Text>
                 </Left>
                 <Body>
                   <Button transparent>
-                    <Text style={{marginLeft: -3}}>Bình luận</Text>
+                    <Text style={{marginLeft: 20,fontWeight:"bold"}}>Report</Text>
                   </Button>
                 </Body>
                 <Right>
                     <TouchableHighlight onPress={()=>{Actions.pageTwo({position: this.state.dataSource[index]})}}>
-                      <Text>View </Text>
+                      <Text style={{fontWeight:"bold"}}>View </Text>
                     </TouchableHighlight>
                 </Right>
               </CardItem>
